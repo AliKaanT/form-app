@@ -46,7 +46,7 @@ function App() {
                                 <img id="logo" alt="logo" className="img-fluid w-25 p-2" src="./logo.d6990a66.png"></img>
                             </div>
                             <div id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <form action="" onSubmit={}>
+                                <form action="">
                                     <div className="row">
                                         <h4 className="mt-5">Etkinlik Bilgi Formu</h4>
                                         <div className="form-floating col-lg-6 p-1">
