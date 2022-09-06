@@ -1,6 +1,15 @@
 import { Formik, Field } from "formik"
 import "./App.css"
 import UniOptions from "./components/UniOptions.js"
+import axios from "axios"
+
+const aaa = async function () {
+    console.log("asdsadsdasd")
+    await axios.post("http://localhost:1234/api", {name:"sen"})
+}
+
+aaa()
+
 function App() {
     return (
         <Formik
@@ -11,23 +20,23 @@ function App() {
                 soru2: "sec",
                 soru4: "",
                 soru5: "",
-                soru6 : "soru6",
-                soru7 : "soru7",
-                soru8 : "soru8",
-                soru9 : "soru9",
-                soru10 : "soru10",
-                soru11 : "666",
-                soru12 : "777",
-                soru13 : "soru13",
-                soru14 : "soru14",
-                soru15 : "soru15",
-                soru16 : "soru16",
-                soru17 : "soru17",
-                soru18 : "soru18",
-                soru19 : "soru19",
-                ad_soyad : "Ali Kaan",
-                phone_num : "5050554879",
-                email : "xxx@hotmil.com"
+                soru6: "soru6",
+                soru7: "soru7",
+                soru8: "soru8",
+                soru9: "soru9",
+                soru10: "soru10",
+                soru11: "666",
+                soru12: "777",
+                soru13: "soru13",
+                soru14: "soru14",
+                soru15: "soru15",
+                soru16: "soru16",
+                soru17: "soru17",
+                soru18: "soru18",
+                soru19: "soru19",
+                ad_soyad: "ahmet yildirim",
+                phone_num: "5050554879",
+                email: "xxx@hotmil.com"
 
 
             }}
@@ -46,7 +55,10 @@ function App() {
                                 <img id="logo" alt="logo" className="img-fluid w-25 p-2" src="./logo.d6990a66.png"></img>
                             </div>
                             <div id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <form action="">
+                                <form action="" onSubmit={(event) => {
+                                    event.preventDefault();
+                                    console.log(values)
+                                }}>
                                     <div className="row">
                                         <h4 className="mt-5">Etkinlik Bilgi Formu</h4>
                                         <div className="form-floating col-lg-6 p-1">

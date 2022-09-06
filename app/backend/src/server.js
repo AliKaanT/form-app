@@ -2,7 +2,9 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require('cors')
 
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -12,12 +14,12 @@ mongoose.connect("mongodb://localhost:27017/form")
 //
 
 
-
-app.use(()=>{
-    const universiteler = "abc" //from database
+app.post("/api", (req, res) => {
+    const x = req.body
+    console.dir(req.body)
+    res.send("asd")
 })
 
-app.get("/api/universiteler", (req, res) => {
-
-    res.json(universiteler)
+app.listen("1234", () => {
+    console.log("listening...")
 })
