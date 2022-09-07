@@ -8,12 +8,18 @@ import { createRoot } from "react-dom/client";
 function App() {
 
     const submitForm = async (data) => {
-        await axios.post("http://localhost:1234/save", data);
-        const root = createRoot(document.getElementById("main"))
-        root.render(<Success />)
-        setTimeout(() => {
-            window.location.reload()
-        }, 5000)
+        await axios.post("http://localhost:1234/save", data)
+            .then(() => {
+                const root = createRoot(document.getElementById("main"))
+                root.render(<Success />)
+                setTimeout(() => {
+                    window.location.reload()
+                }, 5000)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
     }
 
     return (

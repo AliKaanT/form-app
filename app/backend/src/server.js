@@ -27,10 +27,12 @@ const Form = mongoose.model("Form", schema1);
 
 app.post("/save", async (req, res) => {
     const data = req.body
+    console.log(data)
     const form = new Form({
         answers: data
     })
     await form.save()
+    res.send("success")
 })
 
 app.listen("1234", () => {

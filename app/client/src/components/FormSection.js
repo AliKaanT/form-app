@@ -71,9 +71,4 @@ const FormSection = ({ submitForm }) => {
 };
 
 
-FormSection.propTypes = {
-
-};
-
-
 export default FormSection;
