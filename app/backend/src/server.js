@@ -10,16 +10,27 @@ app.use(express.static("public"));
 app.use(express.json());
 
 
-mongoose.connect("mongodb://localhost:27017/form")
+const DATABASE_ENDPOINT = "mongodb://localhost:27017/form"
+
+
+mongoose.connect(DATABASE_ENDPOINT)
     .then(() => { console.log("Database connection success !") })
     .catch((e) => { console.log("Failed to connect Database\n", e) })
 //
 
+const schema1 = new mongoose.Schema({
+    answers: {}
+})
 
-app.post("/save", (req, res) => {
-    const x = req.body
-    console.log(x)
-    res.send("asd")
+const Form = mongoose.model("Form", schema1);
+
+
+app.post("/save", async (req, res) => {
+    const data = req.body
+    const form = new Form({
+        answers: data
+    })
+    await form.save()
 })
 
 app.listen("1234", () => {
