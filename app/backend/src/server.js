@@ -36,5 +36,5 @@ app.post("/save", async (req, res) => {
 })
 
 app.listen("1234", () => {
-    console.log("listening...")
+    console.log("listening on port 1234...")
 })
