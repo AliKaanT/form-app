@@ -7,6 +7,8 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.json());
+
 
 mongoose.connect("mongodb://localhost:27017/form")
     .then(() => { console.log("Database connection success !") })
@@ -14,9 +16,9 @@ mongoose.connect("mongodb://localhost:27017/form")
 //
 
 
-app.post("/api", (req, res) => {
+app.post("/save", (req, res) => {
     const x = req.body
-    console.dir(req.body)
+    console.log(x)
     res.send("asd")
 })
 
